@@ -1,7 +1,7 @@
 import TelegramBot from 'node-telegram-bot-api';
 import config from './../secret.json' assert { type: 'json' };
 
-export default function launchBot(){
+const launchBot = () => {
     const token = config.tokеn;
     const bot = new TelegramBot(token, {polling: true});
 
@@ -18,4 +18,8 @@ export default function launchBot(){
     
         bot.sendMessage(chatId, 'Received your message');
     });
+
+    return bot;
 }
+
+export default launchBot
